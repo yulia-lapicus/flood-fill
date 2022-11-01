@@ -1,6 +1,6 @@
 from typing import List
 from queue import Queue
-
+#input
 board = [
     "......................",
     "......##########......",
@@ -12,7 +12,7 @@ board = [
     "....##############....",
 ]
 
-
+#get neighbour
 def get_valid_neighbour(board, x, y, old='.') -> List[List[int]]:
     """Returns the neighbours of the given point that can be filled
     Args:

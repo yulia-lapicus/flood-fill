@@ -38,15 +38,16 @@ def flood_fill(input_board: List[str], old: str, new: str, x: int, y: int) -> Li
     """
     new_board = board.copy()
     q = Queue()
-    q.put((x, y))
-    while not q.empty():
-        x, y = q.get()
-        board_str_list = list(new_board[x])
-        board_str_list[y] = new
-        new_board[x] = ''.join(board_str_list)
-        valid_neighbours = get_valid_neighbour(new_board, x, y)
-        for nei in valid_neighbours:
-            q.put(nei)
+    if input_board[x][y] == old:
+        q.put((x, y))
+        while not q.empty():
+            x, y = q.get()
+            board_str_list = list(new_board[x])
+            board_str_list[y] = new
+            new_board[x] = ''.join(board_str_list)
+            valid_neighbours = get_valid_neighbour(new_board, x, y)
+            for nei in valid_neighbours:
+                q.put(nei)
     return new_board
 
     
